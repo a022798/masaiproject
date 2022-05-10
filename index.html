@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <title>Home Page</title>
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: white;
+            height: 40px;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 16px 18px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        li a:hover {
+            background-color: lightgrey;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .hero-image {
+            background-image: url("https://ak1.ostkcdn.com/img/mxc/04292022-HP-A1-INTL-1400x550.jpg");
+            height: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero-text {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+        .hero-text button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 10px 25px;
+            color: black;
+            background-color: #ddd;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .hero-text button:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        /* icon image section */
+        .row>.column {
+            padding: 0 8px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: auto;
+        }
+
+        .column {
+            float: left;
+            width: 80%;
+            margin-top: 25px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: black;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        /* The Close Button */
+        .close {
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #999;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        img {
+            margin-bottom: -4px;
+        }
+
+        .caption-container {
+            text-align: center;
+            background-color: black;
+            padding: 2px 16px;
+            color: white;
+        }
+
+        .demo {
+            opacity: 0.6;
+        }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+
+        img.hover-shadow {
+            transition: 0.3s;
+        }
+
+        /* 
+        .hover-shadow:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        } */
+
+        /* banner1 section*/
+
+        .hero-image1 {
+            background-image: url("https://ak1.ostkcdn.com/img/mxc/04282022_HomeDecorRefresh_Desktopv2.jpg?imwidth=3840");
+            height: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .hero-text1 {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+        .hero-text1 button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 10px 25px;
+            color: black;
+            background-color: #ddd;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .hero-text1 button:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        /* banner1 section end */
+
+        /* portfoloio section */
+
+        .row1 {
+            margin: 10px -16px;
+            background-color: #999;
+        }
+
+        /* Add padding BETWEEN each column */
+        .row1 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        .row1:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .content {
+            background-color: white;
+            padding: 10px;
+            height: 100%;
+        }
+
+        .show {
+            display: block;
+        }
+
+
+        /* banner2 section*/
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .hero-image2 {
+            background-image: url("https://ak1.ostkcdn.com/img/mxc/04282022_SpringTimeSlumber_INTL_Desktop.jpg?imwidth=3840");
+            height: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .hero-text2 {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+        .hero-text2 button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 10px 25px;
+            color: black;
+            background-color: #ddd;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .hero-text2 button:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        /* banner2 section end */
+
+        /* portfoloio section */
+
+        .row1 {
+            margin: 10px -16px;
+            background-color: #999;
+        }
+
+        /* Add padding BETWEEN each column */
+        .row1 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        .row1:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .content {
+            background-color: white;
+            padding: 10px;
+            height: 100%;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .row2 {
+            margin: 10px -16px;
+            background-color: #999;
+        }
+
+        /* Add padding BETWEEN each column */
+        .row2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        .row2:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .content1 {
+            background-color: white;
+            padding: 10px;
+            height: 100%;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .btn {
+            border: none;
+            background-color: black;
+            color: white;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 45%;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .row3 {
+            width: auto;
+            height: auto;
+            margin-top: 30px;
+            margin-left: 30px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+        }
+
+        .cmnt {
+            width: 400px;
+            height: 60px;
+            text-align: center;
+            margin-top: 15px;
+            background-color: #ddd;
+            font-size: 16px;
+        }
+
+        /* footer start */
+        footer {
+            width: 100%;
+            height: 90%;
+            bottom: 0;
+            left: 0;
+            background: #545658;
+            margin-top: 30px;
+        }
+
+        footer .contents {
+            /* max-width: 1350px; */
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        footer .contents p,
+        a {
+            color: #fff;
+        }
+
+        footer .contents .box {
+            width: 33%;
+            transition: all 0.4s ease;
+        }
+
+        footer .contents .topic {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 16px;
+
+        }
+
+        footer .contents p {
+            text-align: justify;
+        }
+
+        footer .contents .lower .topic {
+            margin: 24px 0 5px 0;
+        }
+
+        footer .contents .lower i {
+            padding-right: 16px;
+        }
+
+        footer .contents .middle {
+            padding-left: 80px;
+        }
+
+        footer .contents .middle a {
+            line-height: 32px;
+        }
+
+        footer .contents .right input[type="text"] {
+            height: 45px;
+            width: 100%;
+            outline: none;
+            color: #d9d9d9;
+            background: #000;
+            border-radius: 5px;
+            padding-left: 10px;
+            font-size: 17px;
+            border: 2px solid #222222;
+        }
+
+        footer .contents .right input[type="submit"] {
+            height: 42px;
+            width: 100%;
+            font-size: 18px;
+            color: #d9d9d9;
+            background: #eb2f06;
+            outline: none;
+            border-radius: 5px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-top: 12px;
+            border: 2px solid #eb2f06;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .contents .right input[type="submit"]:hover {
+            background: none;
+            color: #eb2f06;
+        }
+
+        footer .contents .media-icons a {
+            font-size: 16px;
+            height: 45px;
+            width: 45px;
+            display: inline-block;
+            text-align: center;
+            line-height: 43px;
+            border-radius: 5px;
+            border: 2px solid #222222;
+            margin: 30px 5px 0 0;
+            transition: all 0.3s ease;
+        }
+
+        .contents .media-icons a:hover {
+            border-color: #eb2f06;
+        }
+
+        footer .bottom {
+            width: 100%;
+            text-align: right;
+            color: #d9d9d9;
+            padding: 0 40px 5px 0;
+        }
+
+        footer .bottom a {
+            color: #eb2f06;
+        }
+
+        footer a {
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #eb2f06;
+        }
+
+        @media (max-width:1100px) {
+            footer .contents .middle {
+                padding-left: 50px;
+            }
+        }
+
+        @media (max-width:950px) {
+            footer .contents .box {
+                width: 50%;
+            }
+
+            .contents .right {
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width:560px) {
+            footer {
+                position: relative;
+            }
+
+            footer .contents .box {
+                width: 100%;
+                margin-top: 30px;
+            }
+
+            footer .contents .middle {
+                padding-left: 0;
+            }
+        }
+
+        /* footer end */
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a class="active" href="#home">Furniture</a></li>
+        <li><a href="#rugs">Rugs</a></li>
+        <li><a href="#decor">Decor</a></li>
+        <li><a href="#bed">Bed & Bath</a></li>
+        <li><a href="#improvement">Home Improvement</a></li>
+        <li><a href="#kitchen">Kitchen</a></li>
+        <li><a href="#outdoor">Outdoor</a></li>
+        <li><a href="#jewelry">Jewelry</a></li>
+        <li><a href="#lighting">Lighting</a></li>
+        <li><a href="#kids">Kids & Baby</a></li>
+        <li><a href="#more">More</a></li>
+    </ul>
+    <!-- banner section -->
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size:70px; background-color: aqua;color: black;width: 50%;margin: auto;">Spring</h1>
+            <h1 style="font-size:70px; background-color: aqua; color: black; margin-top: 20px;">Super Sale</h1>
+            <h3 style="font-size:25px; background-color: white; color: black; margin-top: 20px;">Fresh deals to spruce
+                up your space!</h3>
+            <button style="margin-top: 200px; height: 50px; font-size:30px;margin-bottom: 10px;">Shop Now</button>
+        </div>
+    </div>
+    <!-- banner section end-->
+
+    <h1 style="text-align: center; margin-top: 20px; font-size: 40px;">Limited-Time Deals</h1>
+
+    <div class="row">
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/04292022_HB_INTL_1.svg?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;">Select Garden & Patio</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/04292022_HB_INTL_2.svg?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;">Select Living Room Furniture</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/04292022_HB_INTL_3.svg?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;">Select Dining Room Furniture</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/04292022_HB_INTL_4.svg?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;">Select Home Decor</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/04292022_HB_INTL_4.svg?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;">Select Bedding & Bath</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/04292022_HB_INTL_4.svg?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;">Select Lighting & Ceiling Fans</h3>
+        </div>
+    </div>
+
+    <!-- banner1 section -->
+    <div class="hero-image1">
+        <div class="hero-text1">
+            <h1 style="font-size:70px; color: white;margin-top: 30px;">home decor refresh</h1>
+            <h3 style="font-size:45px; color: white; margin-top: 10px;">Save on fresh styles to update your space.</h3>
+            <button style="margin-top: 200px; height: 50px; font-size:30px;margin-bottom: 10px;">Shop Now</button>
+        </div>
+    </div>
+    <!-- banner1 section end-->
+
+    <h1 style="text-align: center; margin-top: 50px; font-size: 40px;">Fresh Finds In Each Category</h1>
+
+    <div class="row">
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/11192021-CatSilo-Furniture.png?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;color: rgb(148, 147, 147);margin-top: 15px;">Furniture</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-AreaRugs.png?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;color: rgb(148, 147, 147);margin-top: 15px;">Area Rugs</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-BedBath.png?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;color: rgb(148, 147, 147);margin-top: 15px;">Bed & Bath</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-Decor.png?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;color: rgb(148, 147, 147);margin-top: 15px;">Home Decor</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/CatSilo-Window-040721.jpg?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;color: rgb(148, 147, 147);margin-top: 15px;">Window
+                Treatments</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-Kitchen.png?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;color: rgb(148, 147, 147);margin-top: 15px;">Kitchen</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/11192021-CatSilo-Outdoor.png?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;color: rgb(148, 147, 147);margin-top: 15px;">Outdoor</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/01112021-CatSilo-HomeImp.jpg?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;color: rgb(148, 147, 147);margin-top: 15px;">Home Improvement
+            </h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-Storage.png?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;color: rgb(148, 147, 147);margin-top: 15px;">Storage</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/01112021-CatSilo-Mattresses.jpg?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;color: rgb(148, 147, 147);margin-top: 15px;">Mattresses</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-Lighting.png?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;color: rgb(148, 147, 147);margin-top: 15px;">Lighting</h3>
+        </div>
+        <div class="column">
+            <img src="https://ak1.ostkcdn.com/img/mxc/CatSilo-AllDeals-040721.jpg?imwidth=1920" style="width:100%"
+                onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            <h3 style="text-align: center; font-size: 16px;color: rgb(148, 147, 147);margin-top: 15px;">Shop all deals
+            </h3>
+        </div>
+    </div>
+
+    <!-- Portfolio Gallery Grid -->
+    <h1 style="text-align: center; margin-top: 50px; font-size: 40px;">New Ways to Bring Home Spring</h1>
+    <div class="row1">
+        <div class="content">
+            <img src="https://ak1.ostkcdn.com/img/mxc/03282022_HP_Editorial_Frame_2.jpg?imwidth=1920" alt="Mountains"
+                style="width:100%">
+            <h1 style="margin-left: 10px;margin-top: 15px;">Adirondack Chairs</h1>
+            <p style="margin-left: 10px;color: #555;font-size: 16px;margin-top: 15px;">Refresh your outdoor seating with
+                this lawn & patio
+                classic.</p>
+        </div>
+        <div class="content">
+            <img src="https://ak1.ostkcdn.com/img/mxc/03282022_HP_Editorial_Frame_8.jpg?imwidth=1920" alt="Lights"
+                style="width:100%">
+            <h1 style="margin-left: 10px;margin-top: 15px;">Gifts for Plant Lovers</h1>
+            <p style="margin-left: 10px;color: #555;font-size: 16px;margin-top: 15px;">Add a little shade to any yard or
+                garden with these beautiful structures.</p>
+        </div>
+        <div class="content">
+            <img src="https://ak1.ostkcdn.com/img/mxc/03282022_HP_V2_Editorial_Frame6.jpg?imwidth=1920" alt="Nature"
+                style="width:100%">
+            <h1 style="margin-left: 10px;margin-top: 15px;">Gazebos and Pergolas</h1>
+            <p style="margin-left: 10px;color: #555;font-size: 16px;margin-top: 15px;">Refresh your outdoor seating with
+                this lawn & patio classic.</p>
+
+        </div>
+        <div class="content">
+            <img src="https://ak1.ostkcdn.com/img/mxc/03282022_HP_Editorial_Frame_3.jpg?imwidth=1920" alt="Car"
+                style="width:100%">
+            <h1 style="margin-left: 10px;margin-top: 15px;">Wicker Patio Furniture</h1>
+            <p style="margin-left: 10px; color: #555; font-size: 16px;margin-top: 15px;">Treat the green thumbs in your
+                life to these perfect plant-focused gifts.</p>
+        </div>
+    </div>
+
+    <!-- banner2 section -->
+    <div class="hero-image2">
+        <div class="hero-text2">
+            <h1 style="font-size:80px; color: white;margin-top: 30px;">spring time slumber</h1>
+            <button style="margin-top: 200px; height: 50px; font-size:30px;margin-bottom: 10px;">Shop Now</button>
+        </div>
+    </div>
+    <!-- banner2 section end-->
+
+    <h1 style="text-align: center; margin-top: 50px; font-size: 40px;">Overstock Featured Brands</h1>
+    <div class="row1">
+        <div class="content">
+            <img src="https://ak1.ostkcdn.com/img/mxc/C-Mod_HP_C_Mod_34762650.jpg?imwidth=1920" alt="Mountains"
+                style="width:100%">
+            <h1 style="margin-left: 10px;margin-top: 15px;text-align: center;">Extra 15% off</h1>
+            <p style="margin-left: 10px;color: #555;font-size: 16px;margin-top: 15px;text-align: center;">Select Rugs by
+                Artistic Weavers & More*</p>
+        </div>
+        <div class="content">
+            <img src="https://ak1.ostkcdn.com/img/mxc/03282022_HP_Editorial_Frame_8.jpg?imwidth=1920" alt="Lights"
+                style="width:100%">
+            <h1 style="margin-left: 10px;margin-top: 15px;text-align: center;">Save On</h1>
+            <p style="margin-left: 10px;color: #555;font-size: 16px;margin-top: 15px;text-align: center;">Add a little
+                shade to any yard or
+                garden with these beautiful structures.</p>
+        </div>
+        <div class="content">
+            <img src="https://ak1.ostkcdn.com/img/mxc/03282022_HP_V2_Editorial_Frame6.jpg?imwidth=1920" alt="Nature"
+                style="width:100%">
+            <h1 style="margin-left: 10px;margin-top: 15px;text-align: center;">Extra 15% off</h1>
+            <p style="margin-left: 10px;color: #555;font-size: 16px;margin-top: 15px;text-align: center;">Refresh your
+                outdoor seating with
+                this lawn & patio classic.</p>
+
+        </div>
+        <div class="content">
+            <img src="https://ak1.ostkcdn.com/img/mxc/03282022_HP_Editorial_Frame_3.jpg?imwidth=1920" alt="Car"
+                style="width:100%">
+            <h1 style="margin-left: 10px;margin-top: 15px;text-align: center;">Save On</h1>
+            <p style="margin-left: 10px; color: #555; font-size: 16px;margin-top: 15px;text-align: center;">Treat the
+                green thumbs in your
+                life to these perfect plant-focused gifts.</p>
+        </div>
+    </div>
+
+    <h1 style="text-align: center; margin-top: 50px; font-size: 40px;">We've Got Your Style</h1>
+    <div class="row2">
+        <div class="content1">
+            <img src="https://ak1.ostkcdn.com/img/mxc/C-Mod_HP_C_Mod_34762650.jpg?imwidth=1920" alt="Mountains"
+                style="width:100%">
+            <h1 style="margin-left: 10px;margin-top: 15px;text-align: center;">Farmhouse</h1>
+            <p style="margin-left: 10px;color: #555;font-size: 16px;margin-top: 15px;text-align: center;">Select Rugs by
+                Artistic Weavers & More*</p>
+        </div>
+        <div class="content1">
+            <img src="https://ak1.ostkcdn.com/img/mxc/03282022_HP_Editorial_Frame_8.jpg?imwidth=1920" alt="Lights"
+                style="width:100%">
+            <h1 style="margin-left: 10px;margin-top: 15px;text-align: center;">Traditional</h1>
+            <p style="margin-left: 10px;color: #555;font-size: 16px;margin-top: 15px;text-align: center;">Add a little
+                shade to any yard or
+                garden with these beautiful structures.</p>
+        </div>
+        <div class="content1">
+            <img src="https://ak1.ostkcdn.com/img/mxc/03282022_HP_V2_Editorial_Frame6.jpg?imwidth=1920" alt="Nature"
+                style="width:100%">
+            <h1 style="margin-left: 10px;margin-top: 15px;text-align: center;">Mid-Century Modern</h1>
+            <p style="margin-left: 10px;color: #555;font-size: 16px;margin-top: 15px;text-align: center;">Refresh your
+                outdoor seating with
+                this lawn & patio classic.</p>
+
+        </div>
+    </div>
+    <button class="btn">See All Styles</button>
+
+    <h1 style="text-align: center; margin-top: 50px; font-size: 40px;">Trending Searches</h1>
+    <div class="row3">
+        <div class="cmnt">
+            <h4 style="margin-top: 20px">Outdoor Rugs</h4>
+        </div>
+        <div class="cmnt">
+            <h4 style="margin-top: 20px">Gaming Chairs</h4>
+        </div>
+        <div class="cmnt">
+            <h4 style="margin-top: 20px">Outdoor Furniture</h4>
+        </div>
+        <div class="cmnt">
+            <h4 style="margin-top: 20px">Shower Curtains</h4>
+        </div>
+        <div class="cmnt">
+            <h4 style="margin-top: 20px">TV Stands</h4>
+        </div>
+        <div class="cmnt">
+            <h4 style="margin-top: 20px">Coffee Tables</h4>
+        </div>
+        <div class="cmnt">
+            <h4 style="margin-top: 20px">Outdoor Sofas</h4>
+        </div>
+        <div class="cmnt">
+            <h4 style="margin-top: 20px">Outdoor Sofas</h4>
+        </div>
+        <div class="cmnt">
+            <h4 style="margin-top: 20px">Office Chairs</h4>
+        </div>
+        <div class="cmnt">
+            <h4 style="margin-top: 20px">Bar Stools</h4>
+        </div>
+        <div class="cmnt">
+            <h4 style="margin-top: 20px">Computer Desks</h4>
+        </div>
+        <div class="cmnt">
+            <h4 style="margin-top: 20px">Rugs</h4>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="contents">
+            <div class="left box">
+                <div class="upper">
+                    <div class="topic">About us</div>
+                    <p>CodingLab is a channel where you can learn HTML,
+                        CSS, and also JavaScript along with creative CSS Animations and Effects.</p>
+                </div>
+                <div class="lower">
+                    <div class="topic">Contact us</div>
+                    <div class="phone">
+                        <a href="#"><i class="fas fa-phone-volume"></i>1-800-843-2446</a>
+                    </div>
+                    <div class="email">
+                        <a href="#"><i class="fas fa-envelope"></i>abc@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="middle box">
+                <div class="topic">Our Services</div>
+                <div><a href="#">Web Design, Development</a></div>
+                <div><a href="#">Web UX Design, Reasearch</a></div>
+                <div><a href="#">Web User Interface Design</a></div>
+                <div><a href="#">Theme Development, Design</a></div>
+                <div><a href="#">Mobile Application Design</a></div>
+                <div><a href="#">Wire raming & Prototyping</a></div>
+            </div>
+            <div class="right box">
+                <div class="topic">Subscribe us</div>
+                <form action="#">
+                    <input type="text" placeholder="Enter email address">
+                    <input type="submit" name="" value="Send">
+                    <div class="media-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bottom">
+            <p>© Copyright 2022, Overstock.com®, Inc.
+                799 Coliseum Way Midvale, UT 84047 | 1-800-843-2446</p>
+        </div>
+    </footer>
+</body>
+
+</html>
